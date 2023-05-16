@@ -1,0 +1,52 @@
+nav {
+    padding: 24px;
+    background-color: #3f51b5;
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 24px;
+    font-family: 'Roboto';
+    color: #FFFFFF;
+}
+
+.nav-shopping-cart-icon {
+    color: #FFFFFF;
+}
+
+.menu-container {
+    padding: 24px 16px;
+    width: 240px;
+}
+
+.menu-title {
+    font-size: 24px;
+    font-family: 'Roboto';
+}
+
+.no-items-in-cart {
+    font-family: 'Roboto';
+    font-size: 16px;
+    margin-top: 24px;
+}
+
+.menu-total {
+    font-family: 'Roboto';
+    font-size: 20px;
+    margin-top: 24px;
+}
+
+@media screen and (min-width: 768px) {
+    .menu-container {
+        width: 400px;
+    }
+}

@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/home';
+import ProductPage from './pages/product';
+import NotFoundPage from './pages/not-found';
+import Navbar from './components/Navbar/Navbar';
+import { useEffect, useState } from 'react';
 
 function App() {
+  let [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then(res => res.json())
+      .then(json => {
+        setProducts(json);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<HomePage products={products} />} />
+          <Route path='/product-details/:productId' element={<ProductPage />} />
+          <Route path='*' element={<NotFoundPage />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
